@@ -1,0 +1,119 @@
+﻿<Window x:Class="WpfAppSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:WpfAppSample.ViewModel"
+        xmlns:local="clr-namespace:WpfAppSample"
+        mc:Ignorable="d"
+        Title="Airplane Simulator" Height="221" Width="406">
+
+    <!--ViewModel-->
+    <Window.DataContext>
+        <viewModel:ViewModel/>
+    </Window.DataContext>
+
+    <StackPanel Orientation="Vertical">
+
+
+        <local:UC_Sample DataContext="{Binding TemplateSelectorVM}" Height="76" />
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Selected Slot:"/>
+            <Label Content="{Binding Path=TemplateSelectorVM.ImageSlot}"/>
+        </StackPanel>
+        <Label Content="Telemetry"/>
+
+        <Grid Margin="10,10,10,10"  Visibility="{Binding IgnitionGo, Converter={StaticResource BoolToVis}, Mode=TwoWay}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid ShowGridLines="True" Margin="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="100"/>
+
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border Margin="0" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="5" Grid.RowSpan="1"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="Speed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Grid.Column="1" Content="{Binding SpeedValue, Mode=TwoWay}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,14,0"/>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button FontFamily="Marlett" FontSize="15" Content="5" Width="30" Command="{Binding IncreaseSpeedCommand}"/>
+                    <Label Grid.Column="2"  FontSize="10" Content="{Binding TargetSpeedValue, Mode=TwoWay}" Width="30"/>
+                    <Button FontFamily="Marlett" FontSize="15" Content="6" Width="30"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1" ShowGridLines="True" Margin="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border Margin="0" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="5" Grid.RowSpan="1"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="Angle" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Grid.Column="1" Content="{Binding AngleValue, Mode=TwoWay}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,14,0"/>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button FontFamily="Marlett" FontSize="15" Content="5" Width="30" Command="{Binding IncreaseAngleCommand}" />
+                    <Label Grid.Column="2"  FontSize="10" Content="{Binding TargetAngleValue, Mode=TwoWay}" Width="30"/>
+                    <Button FontFamily="Marlett" FontSize="15" Content="6" Width="30"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2" ShowGridLines="True" Margin="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border Margin="0" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="5" Grid.RowSpan="1"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="Height" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Grid.Column="1" Content="{Binding HeightValue, Mode=TwoWay}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,14,0"/>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button FontFamily="Marlett" FontSize="15" Content="5" Width="30"/>
+                    <Label Grid.Column="2"  FontSize="10" Content="{Binding TargetHeightValue, Mode=TwoWay}" Width="30"/>
+                    <Button FontFamily="Marlett" FontSize="15" Content="6" Width="30"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <CheckBox 
+        Content="{Binding TextInfo}"
+        IsChecked="{Binding IgnitionGo}"
+        Command="{Binding IgnitionCommand}"
+        CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Top" 
+        Margin="10,10,0,0"/>
+        <ListBox ItemsSource="{Binding TestList}"
+                 SelectedValue="{Binding SelectedTestValue}">
+            <ListBox.ItemTemplate>
+            <DataTemplate>
+                    <TextBlock Text="{Binding Path=Value}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+
+</Window>
