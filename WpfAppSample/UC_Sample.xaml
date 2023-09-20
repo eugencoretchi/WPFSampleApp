@@ -33,7 +33,9 @@
                     Background="Gray"
                     BorderBrush="Transparent"
                     GroupName="ToggleGroup"
-                    IsChecked="{Binding ImageSlot, Converter={StaticResource EnumToBoolConverter}, 
+                    IsChecked="{
+                        Binding ImageSlot, 
+                        Converter={StaticResource EnumToBoolConverter}, 
                         ConverterParameter={x:Static local:ImageSlot.A}}"
                     Style="{StaticResource {x:Type ToggleButton}}">
                     <Image 
@@ -49,7 +51,9 @@
                     Background="Gray"
                     BorderBrush="Transparent"
                     GroupName="ToggleGroup"
-                    IsChecked="{Binding ImageSlot, Converter={StaticResource EnumToBoolConverter}, 
+                    IsChecked="{
+                        Binding ImageSlot, 
+                        Converter={StaticResource EnumToBoolConverter}, 
                         ConverterParameter={x:Static local:ImageSlot.B}}"
                     Style="{StaticResource {x:Type ToggleButton}}">
                     <Image 
@@ -65,7 +69,9 @@
                     Background="Gray"
                     BorderBrush="Transparent"
                     GroupName="ToggleGroup"
-                    IsChecked="{Binding ImageSlot, Converter={StaticResource EnumToBoolConverter}, 
+                    IsChecked="{
+                        Binding ImageSlot, 
+                        Converter={StaticResource EnumToBoolConverter}, 
                         ConverterParameter={x:Static local:ImageSlot.C}}"
                     Style="{StaticResource {x:Type ToggleButton}}">
                     <Image 
@@ -81,7 +87,9 @@
                     Background="Gray"
                     BorderBrush="Transparent"
                     GroupName="ToggleGroup"
-                    IsChecked="{Binding ImageSlot, Converter={StaticResource EnumToBoolConverter}, 
+                    IsChecked="{
+                        Binding ImageSlot, 
+                        Converter={StaticResource EnumToBoolConverter}, 
                         ConverterParameter={x:Static local:ImageSlot.D}}"
                     Style="{StaticResource {x:Type ToggleButton}}">
                     <Image 

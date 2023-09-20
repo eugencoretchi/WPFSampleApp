@@ -8,20 +8,40 @@
         mc:Ignorable="d"
         Title="Airplane Simulator" Height="221" Width="406">
 
-    <!--ViewModel-->
+    <Window.Resources>
+        <ControlTemplate x:Key="ControlH">
+            <Image x:Name="TheImage" Source="Images/not_completed_yet.png" />
+        </ControlTemplate>
+        <ControlTemplate x:Key="ControlV">
+            <StackPanel>
+                <TextBlock Text="Yes Is True!!" />
+                <TextBlock Text="This is another different template!!" />
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ControlG">
+            <local:UC_Sample DataContext="{Binding TemplateSelectorVM}"/>
+        </ControlTemplate>
+    </Window.Resources>    
+
     <Window.DataContext>
         <viewModel:ViewModel/>
     </Window.DataContext>
 
     <StackPanel Orientation="Vertical">
 
+        <StackPanel Orientation="Horizontal">
+            <RadioButton Width="40" Height="40" Click="OnRBClick" Content="H" Tag="ControlH"/>
+            <RadioButton Width="40" Height="40" Click="OnRBClick" Content="V" Tag="ControlV"/>
+            <RadioButton Width="40" Height="40" Click="OnRBClick" Content="G" Tag="ControlG"/>
+        </StackPanel>
 
-        <local:UC_Sample DataContext="{Binding TemplateSelectorVM}" Height="76" />
-
+        <Control Height="100" x:Name="SelectorControl" Template="{StaticResource ControlH}" />
+        
         <StackPanel Orientation="Horizontal">
             <Label Content="Selected Slot:"/>
             <Label Content="{Binding Path=TemplateSelectorVM.ImageSlot}"/>
         </StackPanel>
+
         <Label Content="Telemetry"/>
 
         <Grid Margin="10,10,10,10"  Visibility="{Binding IgnitionGo, Converter={StaticResource BoolToVis}, Mode=TwoWay}">
@@ -99,17 +119,17 @@
             </Grid>
         </Grid>
         <CheckBox 
-        Content="{Binding TextInfo}"
-        IsChecked="{Binding IgnitionGo}"
-        Command="{Binding IgnitionCommand}"
-        CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}" 
-        HorizontalAlignment="Left" 
-        VerticalAlignment="Top" 
-        Margin="10,10,0,0"/>
+            Content="{Binding TextInfo}"
+            IsChecked="{Binding IgnitionGo}"
+            Command="{Binding IgnitionCommand}"
+            CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Margin="10,10,0,0"/>
         <ListBox ItemsSource="{Binding TestList}"
                  SelectedValue="{Binding SelectedTestValue}">
             <ListBox.ItemTemplate>
-            <DataTemplate>
+                <DataTemplate>
                     <TextBlock Text="{Binding Path=Value}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
