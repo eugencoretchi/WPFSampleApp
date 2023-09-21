@@ -8,6 +8,7 @@
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Windows.Controls;
     using System.Windows.Input;
     using GalaSoft.MvvmLight;
     using GalaSoft.MvvmLight.Command;
@@ -17,6 +18,7 @@
         readonly double todegrees = 180 / Math.PI;
         readonly double oneRadian = Math.PI / 180;
 
+        public UserControl MySelectedControl { get; set; }
 
         public ViewModelTemplateSelector TemplateSelectorVM { get; set; } = new ViewModelTemplateSelector();
 
@@ -57,7 +59,6 @@
         public ICommand IncreaseSpeedCommand { get; }
         public ICommand IncreaseAngleCommand { get; }
 
-
         public void OnButtonClick(ImageSlot btnNum)
         {
             switch(btnNum)
@@ -67,10 +68,12 @@
             }
         }
 
-
-
         public ViewModel()
         {
+            MySelectedControl = new UC_Sample();
+            MySelectedControl.DataContext = TemplateSelectorVM;
+            RaisePropertyChanged(nameof(MySelectedControl));
+
             IgnitionCommand = new RelayCommand( () =>
             {
                 if (!airplaneSim.Telemetry.Ignition && IgnitionGo)

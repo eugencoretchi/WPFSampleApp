@@ -18,8 +18,9 @@ namespace WpfAppSample
         {
             var rb = sender as RadioButton;
             var tag = rb?.Tag.ToString();
+            var o = this.Resources[tag];
 
-            SelectorControl.Template = this.Resources[tag] as ControlTemplate;
+            SelectedControl.Template = o as ControlTemplate;
         }
 
     }

@@ -6,7 +6,11 @@
              xmlns:local="clr-namespace:WpfAppSample"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-   
+
+    <UserControl.DataContext>
+        <viewModel:ViewModelTemplateSelector/>
+    </UserControl.DataContext>
+    
     <Grid>
         <Border
             Grid.Row="1"

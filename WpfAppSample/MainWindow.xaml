@@ -21,21 +21,22 @@
         <ControlTemplate x:Key="ControlG">
             <local:UC_Sample DataContext="{Binding TemplateSelectorVM}"/>
         </ControlTemplate>
-    </Window.Resources>    
+    </Window.Resources>
 
     <Window.DataContext>
         <viewModel:ViewModel/>
     </Window.DataContext>
 
     <StackPanel Orientation="Vertical">
-
         <StackPanel Orientation="Horizontal">
             <RadioButton Width="40" Height="40" Click="OnRBClick" Content="H" Tag="ControlH"/>
             <RadioButton Width="40" Height="40" Click="OnRBClick" Content="V" Tag="ControlV"/>
             <RadioButton Width="40" Height="40" Click="OnRBClick" Content="G" Tag="ControlG"/>
         </StackPanel>
 
-        <Control Height="100" x:Name="SelectorControl" Template="{StaticResource ControlH}" />
+        <Control x:Name="SelectedControl" Height="100" Template="{StaticResource ControlH}" />
+
+        <ContentControl Height="100" Content="{Binding MySelectedControl}"/>
         
         <StackPanel Orientation="Horizontal">
             <Label Content="Selected Slot:"/>
@@ -134,6 +135,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+
     </StackPanel>
 
 </Window>
