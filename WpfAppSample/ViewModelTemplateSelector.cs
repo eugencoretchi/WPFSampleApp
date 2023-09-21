@@ -1,14 +1,10 @@
-﻿using GalaSoft.MvvmLight;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls.Ribbon;
-
-namespace WpfAppSample
+﻿namespace WpfAppSample
 {
+    using GalaSoft.MvvmLight;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+
     class CurrentConfig
     {
         public string ImgA { get; set; } = string.Empty;
