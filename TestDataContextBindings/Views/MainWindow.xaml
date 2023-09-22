@@ -35,23 +35,13 @@
             Background="{StaticResource FgBrush}"
             >
             <uc:UserControlLeftPanel/>
-
         </Border>
         <Border
             Grid.Row="0" Grid.Column="1" 
             Margin="5,5,5,5"
             Background="{StaticResource FgBrush}"
             >
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
-
-                <uc:UserControl1 DataContext="{StaticResource vm1}" Visibility="Collapsed"/>
-                <uc:UserControl2 DataContext="{StaticResource vm2}" Visibility="Collapsed"/>
-                <uc:UserControl3 DataContext="{StaticResource vm3}" Visibility="Collapsed"/>
-                <ContentControl                     
-                    Content="{Binding MainPage}" 
-                    Visibility="{Binding MainPageVisible}"
-                    />
-            </StackPanel>
+            <ContentControl Content="{Binding MainPage}"/>
         </Border>
 
     </Grid>
