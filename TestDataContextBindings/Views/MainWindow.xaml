@@ -9,12 +9,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="800">
 
-    <Window.Resources>
-        <vm:ViewModel1 x:Key="vm1"/>
-        <vm:ViewModel2 x:Key="vm2"/>
-        <vm:ViewModel3 x:Key="vm3"/>
-    </Window.Resources>
-
     <Window.DataContext>
         <vm:ViewModel/>
     </Window.DataContext>
