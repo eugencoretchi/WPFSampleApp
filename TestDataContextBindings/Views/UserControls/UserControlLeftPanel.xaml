@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="TestDataContextBindings.Views.UserControls.UserControlLeftPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestDataContextBindings.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Content="M1" Width="50" Height="50" Command="{Binding OnM1Button}"/>
+        <Button Grid.Row="1" Content="M2" Width="50" Height="50" Command="{Binding OnM2Button}"/>
+        <Button Grid.Row="2" Content="M3" Width="50" Height="50" Command="{Binding OnM3Button}"/>
+    </Grid>
+</UserControl>

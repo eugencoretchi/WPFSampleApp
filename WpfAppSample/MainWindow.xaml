@@ -6,7 +6,7 @@
         xmlns:viewModel="clr-namespace:WpfAppSample.ViewModel"
         xmlns:local="clr-namespace:WpfAppSample"
         mc:Ignorable="d"
-        Title="Airplane Simulator" Height="221" Width="406">
+        Title="Airplane Simulator" Height="600" Width="450">
 
     <Window.Resources>
         <ControlTemplate x:Key="ControlH">
@@ -36,7 +36,7 @@
 
         <Control x:Name="SelectedControl" Height="100" Template="{StaticResource ControlH}" />
 
-        <ContentControl Height="100" Content="{Binding MySelectedControl}"/>
+        <ContentControl Height="100" Content="{Binding Path=MySelectedControl}"/>
         
         <StackPanel Orientation="Horizontal">
             <Label Content="Selected Slot:"/>

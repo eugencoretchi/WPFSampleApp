@@ -15,6 +15,7 @@
         public UC_Sample()
         {
             InitializeComponent();
+            var d = DataContext;
         }
     }
 }
